@@ -4,48 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projectus Calculatus</title>
-    <link href="./index.css" rel='stylesheet'>
-    <script src = "./index.js" defer></script>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src = "script.js" defer></script>
 </head>
-
 <body>
-<div class="entire-grid">
-    <div class="calculator-display">
-        <div class = "top-display">
-            <div class = "current-display"></div>
-            <div class = "output"></div>
+
+    <div class = "calculator-grid">
+        <div class = "output">
+            <div data-current-line class = "current-line"></div>
+            <div data-previous-line class = "previous-line"></div>
         </div>
+
+        <button data-clear>C</button>
+        <button data-operation>÷</button>
+        <button data-operation>*</button>
+        <button data-operation>-</button>
+
+        <button data-number>7</button>
+        <button data-number>8</button>
+        <button data-number>9</button>
+        <button data-operation class = "two-height">+</button>
+
+        <button data-number>4</button>
+        <button data-number>5</button>
+        <button data-number>6</button>
+        
+        <button data-number>1</button>
+        <button data-number>2</button>
+        <button data-number>3</button>
+        <button data-equals class = "two-height">=</button>
+
+        <button data-number class = "two-length">0</button>
+        <button data-number>.</button>
+
     </div>
 
-
-    <button>C</button>
-    <button>÷</button>
-    <button>×</button>
-    <button>-</button>
-
-
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button class = "height-two">+</button>
-
-
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-
-
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button class = "height-two">=</button>
-
-
-    <button class = "length-two">0</button>
-    <button>.</button>
-</div>
-
 </body>
-
 </html>

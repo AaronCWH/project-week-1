@@ -1,0 +1,60 @@
+body {
+    background-color: wheat;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+};
+
+*, *::before,*::after {
+    box-sizing: border-box;
+    margin: 0;
+    border: 0;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-rows: minmax(150px, auto) repeat(5, 80px);
+    grid-template-columns: repeat(4, 80px);
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+}
+
+.calculator-grid > button {
+    background-color: rgba(202, 179, 179, 0.8);
+    font-size: 2rem;
+    border: 1px solid black;
+}
+
+.calculator-grid > button:hover {
+    cursor:pointer;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+.two-height {
+    grid-row: span 2;
+}
+
+.two-length {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1/-1;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    padding: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .current-line {
+    font-size: 2rem;
+    color: rgba(245, 245, 245, 0.85);
+}
+
+.output .previous-line {
+    font-size: 1.55rem;
+    color: rgba(245, 245, 245, 0.75);
+}
