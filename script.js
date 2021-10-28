@@ -1,9 +1,10 @@
 const numberButton = document.querySelectorAll('[data-number]');
 const operationButton = document.querySelectorAll('[data-operation]');
-const currentLine = document.querySelector('[data-current-line]')
-const previousLine = document.querySelector('[data-previous-line]')
-const equalsButton = document.querySelector('[data-equals]')
-const clearButton = document.querySelector('[data-clear]')
+const currentLine = document.querySelector('[data-current-line]');
+const previousLine = document.querySelector('[data-previous-line]');
+const equalsButton = document.querySelector('[data-equals]');
+const clearButton = document.querySelector('[data-clear]');
+const testFactor = true;
 
 class Calculator {
     constructor(previousLine, currentLine) {
@@ -58,17 +59,41 @@ class Calculator {
         this.operation = undefined
         this.prevLine = ''
     };
-
-    updateDisplay() {
-        this.currentLine.innerText = this.currLine
-        this.previousLine.innerText = this.prevLine
+    
+    displayAsNumber(number) {
+       const stringNumber = number.toString()
+       const beforeDecimal = parseFloat(stringNumber.split('.')[0])
+       const afterDecimal = stringNumber.split('.')[1]
+       let integerDisplay
+       if (isNaN(beforeDecimal)) {
+           integerDisplay = ''
+        } else {
+           integerDisplay = beforeDecimal.toLocaleString('en', {
+               maximumFractionDigits: 0 })
+        }
+        if (afterDecimal != null) {
+            return `${integerDisplay}.${afterDecimal}`
+        } else {
+            return integerDisplay
+        }
     };
 
-    // delete() {
-    //     this.currLine = this.currLine.toString.slice(0, -1)
-    // }                                        !! NOT WORKING YET !!!
+    updateDisplay() {
+        this.currentLine.innerText = 
+            this.displayAsNumber(this.currLine)
+        if (this.operation != null) {
+            this.previousLine.innerText = 
+                `${this.displayAsNumber(this.prevLine)} ${this.operation}`
+        } else {
+            this.previousLine.innerText = ''
+        }
+    };
+ 
+    delete() {
+        this.currLine = this.currLine.toString.slice(0, -1)
+    };
 
-}
+};
 
 const calculator = new Calculator(previousLine, currentLine);
 
@@ -96,8 +121,11 @@ equalsButton.addEventListener('click', button=> {
     calculator.updateDisplay()
 });
 
-// document.addEventListener('keydown', (event) => {                NOT WORKING YET
-//     if (event.key == 'Backspace') {
-//     calculator.delete()
-//     }
-// });
+currentLine.addEventListener('keydown', (event) => {             
+    if (event.key == 'Backspace') {
+    calculator.delete()
+    calculator.updateDisplay
+    } else {
+        return
+    }
+});
