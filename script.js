@@ -4,7 +4,7 @@ const currentLine = document.querySelector('[data-current-line]');
 const previousLine = document.querySelector('[data-previous-line]');
 const equalsButton = document.querySelector('[data-equals]');
 const clearButton = document.querySelector('[data-clear]');
-const testFactor = true;
+// const deleteinput = document.getElementById('currentline');
 
 class Calculator {
     constructor(previousLine, currentLine) {
@@ -89,9 +89,9 @@ class Calculator {
         }
     };
  
-    delete() {
-        this.currLine = this.currLine.toString.slice(0, -1)
-    };
+    // delete() {
+    //     this.currLine = this.currLine.toString.slice(0, -1)
+    // };
 
 };
 
@@ -121,11 +121,12 @@ equalsButton.addEventListener('click', button=> {
     calculator.updateDisplay()
 });
 
-currentLine.addEventListener('keydown', (event) => {             
-    if (event.key == 'Backspace') {
-    calculator.delete()
-    calculator.updateDisplay
-    } else {
-        return
-    }
-});
+// deleteinput.addEventListener('keydown', (event) => {                     
+//     if (event.key == 'Backspace') {
+//     calculator.delete()
+//     calculator.updateDisplay
+//     } else {
+//         return
+//     }
+// });
+
